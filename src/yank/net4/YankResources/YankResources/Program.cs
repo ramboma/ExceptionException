@@ -39,6 +39,7 @@ namespace YankResources
 
                 Core core = new Core(netFilePath);
                 Core coreZh = new Core(netZhFilePath);
+                if (!core.IsValid | !coreZh.IsValid) continue;
                 var  enumerator=core.getKeys();
                 while(enumerator.MoveNext())
                 {
