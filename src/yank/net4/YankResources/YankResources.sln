@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YankResources", "YankResources\YankResources.csproj", "{7D00A376-8DE7-460D-BE51-D5016BA62900}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YankResources.Entity", "YankResources.Entity\YankResources.Entity.csproj", "{7CE4F26A-8384-4327-BAF6-31FD08CB9DBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7D00A376-8DE7-460D-BE51-D5016BA62900}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D00A376-8DE7-460D-BE51-D5016BA62900}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D00A376-8DE7-460D-BE51-D5016BA62900}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CE4F26A-8384-4327-BAF6-31FD08CB9DBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CE4F26A-8384-4327-BAF6-31FD08CB9DBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CE4F26A-8384-4327-BAF6-31FD08CB9DBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CE4F26A-8384-4327-BAF6-31FD08CB9DBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
