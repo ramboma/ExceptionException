@@ -6,9 +6,7 @@ using System.Reflection;
 using System.Resources;
 using System.Collections;
 using System.IO;
-using ServiceStack.OrmLite;
-using ServiceStack.OrmLite.MySql;
-using System.Configuration;
+
 using YankResources.Entity;
 namespace YankResources
 {
@@ -58,22 +56,25 @@ namespace YankResources
                     mapper.Add(one);
                 }
             }
-            var dbFactory = new OrmLiteConnectionFactory(ConfigurationManager.AppSettings["ConnectionString"], MySqlDialectProvider.Instance);
-            var dbConnect = dbFactory.Open();
+            
             try
             {
-                bool bCreate = dbConnect.CreateTableIfNotExists<ResourceMapperEntity>();
+                Utility.Helper.OrmHelper.BeginTranslation();
+                bool bCreate=Utility.Helper.OrmHelper.CreateTableIfNotExists<ResourceMapperEntity>();
                 var mapp = EmitMapper.ObjectMapperManager.Instance.GetMapper<List<ResourceMapper>, List<ResourceMapperEntity>>();
                 var entityList = mapp.Map(mapper);
-                dbConnect.InsertAll<ResourceMapperEntity>(entityList);
+                Utility.Helper.OrmHelper.InsertAll<ResourceMapperEntity>(entityList);
+                Utility.Helper.OrmHelper.Commit();
+                int j = 0;
+                int i = 100 / j;
             }
             catch(Exception e)
             {
+                Utility.Helper.OrmHelper.Rollback();
                 Console.WriteLine(e.Message);
             }
             finally
             {
-                dbConnect.Close();
             }
             Console.Read();
         }
