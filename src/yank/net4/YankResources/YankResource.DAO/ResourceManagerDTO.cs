@@ -1,20 +1,13 @@
-﻿using ServiceStack.DataAnnotations;
-namespace YankResources.Entity
+﻿namespace YankResources.DTO
 {
-    [Alias("ResourceMapper")]
-        public class ResourceMapperEntity
-        {
-            [AutoIncrement]
+    public class ResourceManagerDTO
+    {
             public int ResourceId { get; set; }
             public string ResourceKey { get; set; }
-            [StringLength(2000)]
             public string ResourceValue { get; set; }
-            [StringLength(2000)]
             public string ResourceZhValue { get; set; }
             public string AssemblyName { get; set; }
-            [StringLength(2000)]
             public string AssemblyPath { get; set; }
-            [StringLength(2000)]
             public string AssemblyZhPath { get; set; }
-        }
+    }
 }

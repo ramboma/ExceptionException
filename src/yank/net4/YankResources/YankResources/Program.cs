@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Reflection;
-using System.Resources;
-using System.Collections;
-using System.IO;
+using YankResources.DTO;
+using YankResources.BLL;
 
-using YankResources.Entity;
 namespace YankResources
 {
     class Program
@@ -20,7 +16,7 @@ namespace YankResources
             var netList = System.IO.Directory.EnumerateFiles(netPath, "*.dll").ToList();
             var zhNetList = System.IO.Directory.EnumerateFiles(netZhPath, "*.dll").ToList();
             //建立映射关系
-            List<ResourceMapper> mapper = new List<ResourceMapper>();
+            var mapper = new List<ResourceManagerDTO>();
             foreach (var netfile in netList)
             {
                 int lastEqu = netfile.LastIndexOf(@"\");
@@ -45,7 +41,7 @@ namespace YankResources
                 var  enumerator=core.getKeys();
                 while(enumerator.MoveNext())
                 {
-                    ResourceMapper one = new ResourceMapper();
+                    var one = new ResourceManagerDTO();
                     one.ResourceKey= enumerator.Key.ToString();
                     one.ResourceValue = enumerator.Value.ToString();
                     one.ResourceZhValue = coreZh.getValue(one.ResourceKey);
@@ -59,18 +55,11 @@ namespace YankResources
             
             try
             {
-                Utility.Helper.OrmHelper.BeginTranslation();
-                bool bCreate=Utility.Helper.OrmHelper.CreateTableIfNotExists<ResourceMapperEntity>();
-                var mapp = EmitMapper.ObjectMapperManager.Instance.GetMapper<List<ResourceMapper>, List<ResourceMapperEntity>>();
-                var entityList = mapp.Map(mapper);
-                Utility.Helper.OrmHelper.InsertAll<ResourceMapperEntity>(entityList);
-                Utility.Helper.OrmHelper.Commit();
-                int j = 0;
-                int i = 100 / j;
+                ResourceManagerBiz biz = new ResourceManagerBiz();
+                biz.InsertAllResourceManager(mapper);
             }
             catch(Exception e)
             {
-                Utility.Helper.OrmHelper.Rollback();
                 Console.WriteLine(e.Message);
             }
             finally

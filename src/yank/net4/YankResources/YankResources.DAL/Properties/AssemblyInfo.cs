@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("YankResources.Utility")]
+[assembly: AssemblyTitle("YankResources.DAL")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("YankResources.Utility")]
+[assembly: AssemblyProduct("YankResources.DAL")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("341b9a26-82e7-478b-b521-0b01be1648e1")]
+[assembly: Guid("e42c1a32-dba6-429f-b7f7-0c0eb3da3daa")]
 
 // 程序集的版本信息由下列四个值组成: 
 //

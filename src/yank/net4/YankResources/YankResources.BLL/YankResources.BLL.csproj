@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7D00A376-8DE7-460D-BE51-D5016BA62900}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{8C341892-B120-4A58-AC4B-9D5068E1E1F9}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YankResources</RootNamespace>
-    <AssemblyName>YankResources</AssemblyName>
+    <RootNamespace>YankResources.BLL</RootNamespace>
+    <AssemblyName>YankResources.BLL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -36,7 +34,6 @@
       <HintPath>D:\projects\MAgent\MAgent\UI\packages\MyEmitMapper.1.0.0\lib\net40\EmitMapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,25 +42,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="ResourceManagerBiz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YankResource.DAO\YankResources.DTO.csproj">
       <Project>{b6a5af9c-168c-4c52-a628-e5e6f95e1509}</Project>
       <Name>YankResources.DTO</Name>
     </ProjectReference>
-    <ProjectReference Include="..\YankResources.BLL\YankResources.BLL.csproj">
-      <Project>{8c341892-b120-4a58-ac4b-9d5068e1e1f9}</Project>
-      <Name>YankResources.BLL</Name>
+    <ProjectReference Include="..\YankResources.DAL\YankResources.DAL.csproj">
+      <Project>{e42c1a32-dba6-429f-b7f7-0c0eb3da3daa}</Project>
+      <Name>YankResources.DAL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
+    <ProjectReference Include="..\YankResources.Entity\YankResources.Entity.csproj">
+      <Project>{7ce4f26a-8384-4327-baf6-31fd08cb9dbc}</Project>
+      <Name>YankResources.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
